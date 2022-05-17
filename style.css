@@ -7,6 +7,23 @@ body {
     word-wrap: break-word;
 }
 
+.gallery4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+img, #screenshot{
+    max-width: 50vw;
+    width: 1fr;
+}
+
+
+
+#screenshot:hover {
+    transform: scale(1.2);
+}
+
 h1 {
     font-size: 45px;
     text-transform: uppercase;
