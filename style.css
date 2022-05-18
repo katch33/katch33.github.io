@@ -14,14 +14,13 @@ body {
 }
 
 img, #screenshot{
-    max-width: 50vw;
-    width: 1fr;
+    max-width: 100%;
 }
 
 
 
-#screenshot:hover {
-    transform: scale(1.2);
+#gif:hover {
+    transform: scale(1.5);
 }
 
 h1 {
