@@ -16,7 +16,8 @@
       of my daily journal posts. This website is an interactive portfolio of my efforts to become a coder. I update it
       once a day with a journal post and spend way too long staring at it's source in gitpod without making too many
       changes.<br>If you have any suggestions about the page or how it could be made more accessible/user friendly or if
-      you notice an issue that I missed feel free to toot me <a href="https://joinmastodon.org/" target="blank">@k33@mastodon.gamedev.place</a> and let me know, I will try to
+      you notice an issue that I missed feel free to toot me <a href="https://joinmastodon.org/"
+        target="blank">@k33@mastodon.gamedev.place</a> and let me know, I will try to
       fix it as soon as I can.
     <ul class="plain">
       <li><a href="http://k33.itch.io/" target="blank">itch</a> page.</li>
@@ -30,18 +31,79 @@
     <p><em>Below is my daily journal. The first two days were posted to a wordpress blog in markdown so I just copied
         them as text and dumped them in here so they look terrible and have a lovely border keeping them
         quarantined.</em></p>
+    <h2>Day 18 - Thursday 19th May</h2>
+    <p>So I managed to break the image in the post below just now which is a bit odd. I didn't adjust any paths or
+      anything so not sure what's going on there. Anyway for the moment I will forget about it and push ahead to say I
+      have a few gifs from my updated Space Fighter SHMUP tutorial game. I've been having a huge amount of fun adding to
+      what we built in the tutorial. I've used tables to create objects that get added into other tables. An example of
+      what this could look like in Pico 8 is:
+      <br>
+    <blockquote class="code-block">
+      function add_stars(num)<br>
+      for s in all(stars) do<br>
+      add(stars,s={<br>
+      x=64,<br>
+      y=64,<br>
+      spd=1<br>
+      })<br>
+      end<br>
+      end
+    </blockquote><br>
+    The code above is a function that takes one argument (in our case num for number of stars) and adds to our table
+    (named stars) an entry which is itself a table listing info about the star such as it's x value, it's y value and
+    it's speed. Further down in the games update function you can take the speed (spd) value away from the stars x
+    location <blockquote class="code-block">st.x-=st.s</st>
+    </blockquote>
+    This happens until the star disappears off the left hand side of the screen. At this point we reset it's location to
+    the far right side of the screen and it moves past the screen once more. I took this a few steps on and created the
+    following function:<br>
+    <blockquote class="code-block">function add_stars(dist,distbrite,dst,body,star)</blockquote><br>
+    This lovely function takes 5 arguments. Each one generates the equivalent number of that background layer. The first
+    argument, DIST controls the furthest slow moving distant dark stars. A setting over 100 works surprisingly well. In
+    fact in the first gif under this post I have DIST set to 500. So far I don't see any performance impact turning that
+    up to 10,000. At about 14,000 background stars Pico 8 starts to ru out of memory almost immediately so 500 seems
+    reasonable for now.<br><br>
+    After that there are a handful of other layers. DISTBRITE is a small layer of 20 stars right now. It generates
+    bright single pixel objects meant to represent planets/stations etc. DST is for dust which is what I've called the
+    dark circles of varying sizes that come in blue and dim red. THe next layer is a wider spread of larger circles.
+    These have 3 colors which don't overlap the previous layer. Finally there are the nearest stars. THhe ones that have
+    the different coloured long tails. There are 25 of these to give the scene a lot of animation. I want to add a
+    slight wobble to the ship to give it the impression of hovering in space, rather than being fixed still when the
+    player isn't providing input. I'll talk about specifics a bit more in another post someday, but for now I'm going to
+    remind myself that tomorrow the new website should be up and running. ANd that is all.
+    <hr>
+    <img id="gif" src="images/shmup_thur_19th_may_22.gif"
+      alt="A red spaceship moving about in front of scrolling starry background. It shoots red lasers and an energy bar on the top of the screen runs down.">
+    <hr>
 
+    </p>
     <h2> Day 17- Wednesday 18th May</h2>
     <p>
-      I made a lot of progress on both Porklike and on the new SHMUP! tutorial tday. IT felt good to get in two game days in a row. I've included just one updated gif of my work as they essentially all show the same things. In order of noticeable impact the first thing is that I've massively increased the number of background stars and images. This creates a huge amount more action in the scene from the start althought I feel like I want to slow down the darker distant objects a litte bit more to create a greater sense of depth in the parallax, but I'm incredibly haooy with how this currently looks.<br>
-      The ship in the scene was clearly influenced by Spike's "Swordfish" from Cowboy Bebop. I was inspired by another user on the Lazy DEvs Discord to make my background ore dynamic and it was great fun figuring out how to use what I already know to solve the problems I was facing. I'm going to try and keep pace with the tutorial from now on as I don't know enough yet to venture out further and create deeper systems like collision, power-ups etc but I'm really looking forward to it.
+      I made a lot of progress on both Porklike and on the new SHMUP! tutorial tday. IT felt good to get in two game
+      days in a row. I've included just one updated gif of my work as they essentially all show the same things. In
+      order of noticeable impact the first thing is that I've massively increased the number of background stars and
+      images. This creates a huge amount more action in the scene from the start althought I feel like I want to slow
+      down the darker distant objects a litte bit more to create a greater sense of depth in the parallax, but I'm
+      incredibly haooy with how this currently looks.<br>
+      The ship in the scene was clearly influenced by Spike's "Swordfish" from Cowboy Bebop. I was inspired by another
+      user on the Lazy DEvs Discord to make my background ore dynamic and it was great fun figuring out how to use what
+      I already know to solve the problems I was facing. I'm going to try and keep pace with the tutorial from now on as
+      I don't know enough yet to venture out further and create deeper systems like collision, power-ups etc but I'm
+      really looking forward to it.
       <br>
       <br>
-      Quiet day overall, after everything was said and done I played some L4D2 witha friend and just relaxed. TOok it easy. It felt great to know my brain was holding onto some of the sstuff I'm learning. Repetition and doing bits of it everyday is what's making all this time count for more and more. I'm so happy I started this journal. It's given me a focused way to stay on target for doing some of this stuff everyday. Even maintaining my site and updating this blog requires me to use HTML and CSS, VS COdium and git with Github to to. THat's practice in and of itself. I'm really excited to change the blog over to the new layout. All going well it should happen on Friday. TOmorrow I have some family business to attend to, so I probably won't get back to this until later on in the evening. I will write something whether I code or not. {/end.Journal}
+      Quiet day overall, after everything was said and done I played some L4D2 witha friend and just relaxed. TOok it
+      easy. It felt great to know my brain was holding onto some of the sstuff I'm learning. Repetition and doing bits
+      of it everyday is what's making all this time count for more and more. I'm so happy I started this journal. It's
+      given me a focused way to stay on target for doing some of this stuff everyday. Even maintaining my site and
+      updating this blog requires me to use HTML and CSS, VS COdium and git with Github to to. THat's practice in and of
+      itself. I'm really excited to change the blog over to the new layout. All going well it should happen on Friday.
+      TOmorrow I have some family business to attend to, so I probably won't get back to this until later on in the
+      evening. I will write something whether I code or not. {/end.Journal}
       <br>
       <br>
       <hr>
-    <div class="">
+    <div class="gallery1">
       <img id="gif" src="/images/shmup_tut_22_05_18_a.gif"
         alt="a red spaceship flying through stars is firing red lasers. A shimmering title says Star Fighter">
     </div>
@@ -73,6 +135,7 @@
       Today was a good day.
       <hr>
     <div class="gallery4">
+
       <img id="gif" src="/images/shmup_tut_0.gif"
         alt="a red spaceship flying through stars is firing red lasers. A shimmering title says Star Fighter">
       <img id="gif" src="/images/shmup_tut_2.gif"
