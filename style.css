@@ -17,6 +17,7 @@
 :root {
     --blue-highlight: hsla(186, 71%, 44%, 1);
     --dark-green-blue: hsla(194, 85%, 21%, 1);
+    --dark-green: hsla(150, 85%, 21%, 1);
     --red: hsla(2, 70%, 53%, 1);
     --yellow: hsla(40, 100%, 67%, 1);
     --yellow-highlight: #B87A00;
@@ -131,7 +132,7 @@ a {
 
 .box-links {
     text-align: center;
-    background: var(--red);
+    background: blueviolet;
 }
 
 a:hover {
@@ -223,7 +224,7 @@ a:hover {
     .box-links {
         grid-column: 1 / 4;
         text-align: center;
-        background: var(--red);
+        background: linear-gradient();
     }
 
     .spacer {
