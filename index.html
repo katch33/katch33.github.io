@@ -161,30 +161,30 @@
             what we built in the tutorial. I've used tables to create objects that get added into other tables. An example
             of
             what this could look like in Pico 8 is:
-          <blockquote>
-            function add_stars(num)<br>
-            for s in all(stars) do<br>
-            add(stars,s={<br>
-            x=64,<br>
-            y=64,<br>
-            spd=1<br>
-            })<br>
-            end<br>
-            end
-          </blockquote>
+          
+<pre class="code-sample">function add_stars(num)
+  for i=1,num do
+    add(stars,s={
+      x=64,
+      y=64,
+      spd=1
+      })
+  end
+end</pre>
+
+          
           The code above is a function that takes one argument (in our case num for number of stars) and adds to our table
           (named stars) an entry which is itself a table listing info about the star such as it's x value, it's y value
           and
           it's speed. Further down in the games update function you can take the speed (spd) value away from the stars x
-          location <blockquote>st.x-=st.s</st>
-          </blockquote>
+          location <pre class="code-sample">st.x-=st.s</pre>
           This happens until the star disappears off the left hand side of the screen. At this point we reset it's
           location
           to
           the far right side of the screen and it moves past the screen once more. I took this a few steps on and created
           the
           following function:<br>
-          <blockquote>function add_stars(dist,distbrite,dst,body,star)</blockquote><br>
+          <pre class="code-sample">function add_stars(dist,distbrite,dst,body,star)</pre>
           This lovely function takes 5 arguments. Each one generates the equivalent number of that background layer. The
           first
           argument, DIST controls the furthest slow moving distant dark stars. A setting over 100 works surprisingly well.

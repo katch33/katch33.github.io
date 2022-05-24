@@ -39,11 +39,13 @@ body {
     padding: 30px 15vw;
 }
 
-blockquote {
+.code-sample {
+    max-width: 90vw;
     color: var(--dark-green-blue);
     background-color: var(--yellow);
-    padding: 20px;
-    margin: 25px 0px;
+    border-left: solid 4px var(--dark-green-blue);
+    margin: 20px 25px;
+    padding: 10px 15px;
 }
 
 ul {
