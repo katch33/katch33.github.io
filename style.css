@@ -63,10 +63,6 @@ a {
     text-decoration: underline;
 }
 
-p {
-    width: 90vw;
-}
-
 .pico8-center {
     grid-column: 1 / 2;
     margin: auto;
