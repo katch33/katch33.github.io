@@ -83,6 +83,39 @@
 
 <section id="box-blog">
   <div class="blog-fill">
+    <h2>Day 38 - Wednesday 8th July</h2>
+    <hr>
+    <p>
+      As I'm sure the more astute among you have noticed I didn't update the site for a few days. I was extremely busy with the new job over the weekend and needed a break away from the constant immersion I've been using to learn coding. Luckily that means that today I was able to come back with a vengeance and push right on through adding collision, some visual effects and points into my SHMUP game. The gif below demonstrates all these new additions. I will also share some code snippets as well.
+      <br>
+      <br>
+      <img class="pico8-center" src="images\shmup_tut_pewpew_220608.gif"
+        alt="a small red spaceship shoots lasers at green alien bugs. The words pew pew appear above the ship each time it fires">
+      <br>
+      <br>
+      In order to get all of that working my first challenge was to figure out how I could print text with an outline. I used what I could remember from the Porklike tutorial and wrote a small self contained function I can drop into any project for it. It felt good to build something that worked without looking at any reference materials! The code is below:
+      <pre class="code-sample">
+function borderprint(txt,x,y,c1,c2)
+
+	local dirx={-1,1,0,0,-1,1,-1,1}
+	local diry={0,0,-1,1,-1,-1,1,1}
+
+	for i=1,#dirx do
+		print(txt,x+dirx[i],y+diry[i],c2)
+		print(txt,x,y,c1)
+	end
+end
+      </pre>
+      This code takes some text (TXT), an X and Y position and an internal and external colour (C1 and C2 respectively). It uses two tables of values to loop through and print the background colour at all 8 offsets of X and Y. Once this is done it finally prints the original text in the middle in the fill colour. Simple but effective.
+      <br>
+      <br>
+      I am running 3 sessions tomorrow at axe-club. My photographs and videos are finally off my phone and onto my PC so hopefully I can sort them soon and upload some nice little trick shot gifs!
+    </p>
+  </div>
+</section>
+
+<section id="box-blog">
+  <div class="blog-fill">
     <h2>Day 33 - Friday 3rd July</h2>
     <hr>
     <p>
@@ -92,7 +125,7 @@
       Another late update! Friiday was spent running Axe Club by myself. I handled 3 groups, two stag parties (one of which was a pizza event) and one open session full of a mix of people. All three went really well with some customers asking for my name so they could mention me in their reviews. I will be back in on Sunday to split the day with another instructor.
       <br>
       <br>
-      On the coding fron there are now 2 episodes of SHMUP for me to catch up on. I've realised how far my web dev has fallen behind so the new plan moving forward is to use 3 days a week for web coding, 2 for gamedev and to assume I will be working over the weekend. Immersion is particularly important for me to help with learning so I need to become more involved with the Free Code Camp discord I think. I also need to start building some sample projects outside of the lessons I am following. WOrk that I can use to explore the edges of what I already know and figure out what to focus on.
+      On the coding fron there are now 2 episodes of SHMUP for me to catch up on. I've realised how far my web dev has fallen behind so the new plan moving forward is to use 3 days a week for web coding, 2 for gamedev and to assume I will be working over the weekend. Immersion is particularly important for me to help with learning so I need to become more involved with the Free Code Camp discord I think. I also need to start building some sample projects outside of the lessons I am following. Work that I can use to explore the edges of what I already know and figure out what to focus on.
       <br>
       <br>
       That's all for this update. I will make sure to update again tonight (Sat) with any progress I make!

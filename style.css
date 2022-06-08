@@ -40,6 +40,7 @@ body {
 }
 
 .code-sample {
+    text-transform: uppercase;
     max-width: 90vw;
     color: var(--dark-green-blue);
     background-color: var(--yellow);
@@ -64,6 +65,7 @@ a {
 }
 
 .pico8-center {
+    display: grid;
     grid-column: 1 / 2;
     margin: auto;
     margin-top: 15px;
