@@ -83,6 +83,148 @@
 
 <section id="box-blog">
   <div class="blog-fill">
+    <h2>Day 60 - Thursday 30th June</h2>
+    <hr>
+    <p>
+      SHMUP!
+      <br>
+      <br>
+      What is it: A tutorial by Lazy Devs to build an arcade style classic SHMUP game. SCrolling stars, flying ships and pew pew pew's!
+      <br>
+      <br>
+      On my path to becoming a game dev I need to build projects and for teaching and cool ideas I haven't found any better thatn the Lazy Devs youtube channel. There are links up above and I highly suggest checking them out if you;ve ever wanted to make your own game. This series started by beginning with simple concepts. How to draw your ship to the screen, how to move your player, how to draw stars. By explaining the ideas and letting you get your hands dirty as well with the Doggie Zone these videos reinforce core concepts like loops, tables and using timers for animation. FOr my own part I decided I would set the game in a side scrolling universe rather than a vertically scrolling one. In my mind when I think of a SHMUP game I think of titles like the R-Type games.
+      <br>
+      <br>
+      <h3>The Big Big Bang!</h3>
+      <hr>
+      The first thing ever universe needs is stars! It wouldn't be much of a space adventure without a cosmos to whizz by in the background. In order to achieve this I created 3 functions. One to add stars to am empty table, one to loop through the table and update the positions of each star and finally a draw function to draw all of these stars to the screen. First up lets see the code for adding stars to the universe:
+      <br>
+      <pre class="code-sample">
+        function add_stars(dist_num,brite_num,plan_num,star_num)
+	
+	--most distant starfield
+	for i=1,dist_num do
+		add(distant,{
+		x=rnd(128),
+		y=rnd(128)+btm_edge,
+		spd=rnd(0.01)+0.001,--0.0125, --speed of layer
+		c=rnd{1}--color of stars
+		})
+	end
+	
+	--adds a small number of
+	--different coloured distant
+	--stars
+	for i=1,brite_num do
+		add(distbrite,{
+		x=rnd(128),
+		y=rnd(128)+btm_edge,
+		spd=rnd(0.015)+0.005,
+		c=rnd{2,3,8,14,12}
+		})
+	end
+	
+	--planets
+	for i=1,plan_num do
+		add(planets,{
+		x=rnd(128),
+		y=rnd(128)+btm_edge,
+		spd=rnd{0.15,0.30},
+		c=rnd{1,2,3,5},
+		sze=rnd(5)+2,
+		--fill=rnd{░,▒}
+		})
+	end
+	
+	--stars
+	for i=1,star_num do
+		add(stars,{
+		x=rnd(128)+1,
+		y=rnd(128)+btm_edge,
+		spd=rnd(5)+1,
+		scol=rnd{6,7},
+		tcol=6,--rnd{6,7,12,13,14},
+		len=rnd(7)+3
+		})
+	end
+	
+end
+              </pre>
+    <i>The text with two dashes in front (--hello world) is commented out. It means that in my code these lines are ignored.They are often used for explaining a piece of code or making a note of something you need to change or update in the future.</i>
+    <br>
+    <br>
+    As you can see there are multiple sections inside this large block of text. That's because I wanted to add multiple layers of detail to the background space graphics. Each for loop takes an argument from the 'function add_stars(dist_num,brite_num,plan_num,star_num)' call and uses the information provided to add the required number of entries to the relevant table. the information listed inside each loop shows the attributes the object has. All of them require an X and Y value for position, a speed at which they move and then specific info like a radius for the planets, or a colour. With this information added to the tables we can start to update them.
+    <br>
+    <hr>
+    <br>
+    <pre class="code-sample">
+      function upd_stars()
+
+	for d in all(distant) do
+		d.x-=d.spd
+		if d.x<=0  then
+			d.x=128
+			d.y=rnd(128)+btm_edge
+		end
+	end
+	
+	for dist in all(distbrite) do
+		dist.x-=dist.spd
+		if dist.x<=0  then
+			dist.x=128
+			dist.y=rnd(128)+btm_edge
+			dist.c=rnd{1,2,3}
+		end
+	end
+		
+	for p in all(planets) do
+		p.x-=p.spd
+		if p.x<=0  then
+			p.c=rnd{1,2,3,5}
+			p.x=128
+			p.y=rnd(128)+btm_edge
+		end
+	end
+	
+	for s in all(stars) do
+		s.x-=s.spd
+		if s.x<=0  then
+			s.x=138
+			s.y=rnd(128)+btm_edge
+			s.len=rnd(10)+1
+		end
+	end
+		
+end
+    </pre>
+    <br>
+    <br>
+    Again there are multiple sections of code (to update each item) but the important things to note are that we update the X position of each item by adding the speed of that item to it's current location. Once the object disappears off-screen we update it to start it's journey again from the opposite side. If we take the final block of code as an example:
+    <br>
+    <br>
+    'if s.x<=0' says that once the star hits the x position of 0 (the left side of the screen) we should update it's X position to 138 using the line 's.x=138'. We alos set it's Y position (vertical position) to a random value somewhere between 128 and the bottom edge of our hud bar with 's.y=rnd(128)+btm_edge'. Finally after all of that we also give stars a length in case we decide to draw them with trails at any point. Next we will take a look at the code used to draw the stars. Again it is a large block of repeated sections so I will simply use one as an example.
+    <br>
+    <hr>
+    <br>
+    <pre class="code-sample">
+      for s in all(stars) do
+			pset(s.x,s.y,s.scol)
+			--line(s.x-1,s.y,s.x-s.len,s.y,s.tcol)
+	end
+    </pre>
+    <i>Drawing stars to the sky!</i>
+    <br>
+    <br>
+    This code says that we should look in the table called 'stars' and that for every entry we should call the PSET function. PSET takes 3 arguments. An X and Y and a colour argument. Additionally this draw function can also create a trail behind the stars but currently it is commented out for visual testing.
+    <br>
+    <br>
+    We've covered quite a lot of code, and I will tidy this up with shorter examples. For the next update I will show some samples of custom tools I've made that you could use in your own Pico8 projects!
+    </p>
+  </div>
+</section>
+
+<section id="box-blog">
+  <div class="blog-fill">
     <h2>Day 53 - Friday 23rd June</h2>
     <hr>
     <p>
