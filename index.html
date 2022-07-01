@@ -77,14 +77,34 @@
   <div class="blog-fill">
     <h2></h2>
     <hr>
+    <br>
     <p></p>
   </div>
 </section> -->
 
 <section id="box-blog">
   <div class="blog-fill">
+    <h2>Day 61 - Friday 1st July</h2>
+    <hr>
+    <br>
+    <p>
+      Only time for a quick update today. The morning has been spent cleaning my apartment so I feel like a human adult and not a goblin in a cave! I will be working at the Axe Club all day so not much time to code, and then over the weekend I will be attending the Skerries 100 motorcycle race. I will aim to get my next update done by Sunday evening.
+      <br>
+      I alos tidied up yesterdays update and added some context, a more appropriate gif and I improved the spacing on my parapgraphs and my images. I do want to leave you with one more thing though, I have started artwork on a character for a possible platformer game. It would feature spells and magic and pixel art and thoughtful exploration. While the idea is in the early stages I'm getting excited about it. The most important thing is to finishe the projects I am currently working on though.
+      <br>
+      To that end I have started a proper ideas journal for games. Everytime I think of something cool I scribble it down and that should allow me to feel like I haven't forgotten any good concepts while also letting me focus oin what I'm doing now and giving me a source to draw from in future for other projects.
+      <br>
+      <br>
+      Until next time...
+    </p>
+  </div>
+</section>
+
+<section id="box-blog">
+  <div class="blog-fill">
     <h2>Day 60 - Thursday 30th June</h2>
     <hr>
+    <br>
     <p>
       SHMUP!
       <br>
@@ -97,45 +117,10 @@
       <br>
       <h3>The Big Big Bang!</h3>
       <hr>
-      The first thing ever universe needs is stars! It wouldn't be much of a space adventure without a cosmos to whizz by in the background. In order to achieve this I created 3 functions. One to add stars to am empty table, one to loop through the table and update the positions of each star and finally a draw function to draw all of these stars to the screen. First up lets see the code for adding stars to the universe:
+      <br>
+      The first thing ever universe needs is stars! It wouldn't be much of a space adventure without a cosmos to whizz by in the background. In order to achieve this I created 3 functions. One to add stars to am empty table, one to loop through the table and update the positions of each star and finally a draw function to draw all of these stars to the screen. There is quite a lot of code which is very similar so I'm going to just pull out one section (which functions the same way for each different background layer). First up lets see the code for adding stars to the universe:
       <br>
       <pre class="code-sample">
-        function add_stars(dist_num,brite_num,plan_num,star_num)
-	
-	--most distant starfield
-	for i=1,dist_num do
-		add(distant,{
-		x=rnd(128),
-		y=rnd(128)+btm_edge,
-		spd=rnd(0.01)+0.001,--0.0125, --speed of layer
-		c=rnd{1}--color of stars
-		})
-	end
-	
-	--adds a small number of
-	--different coloured distant
-	--stars
-	for i=1,brite_num do
-		add(distbrite,{
-		x=rnd(128),
-		y=rnd(128)+btm_edge,
-		spd=rnd(0.015)+0.005,
-		c=rnd{2,3,8,14,12}
-		})
-	end
-	
-	--planets
-	for i=1,plan_num do
-		add(planets,{
-		x=rnd(128),
-		y=rnd(128)+btm_edge,
-		spd=rnd{0.15,0.30},
-		c=rnd{1,2,3,5},
-		sze=rnd(5)+2,
-		--fill=rnd{░,▒}
-		})
-	end
-	
 	--stars
 	for i=1,star_num do
 		add(stars,{
@@ -147,45 +132,18 @@
 		len=rnd(7)+3
 		})
 	end
-	
-end
-              </pre>
+      </pre>
     <i>The text with two dashes in front (--hello world) is commented out. It means that in my code these lines are ignored.They are often used for explaining a piece of code or making a note of something you need to change or update in the future.</i>
     <br>
     <br>
-    As you can see there are multiple sections inside this large block of text. That's because I wanted to add multiple layers of detail to the background space graphics. Each for loop takes an argument from the 'function add_stars(dist_num,brite_num,plan_num,star_num)' call and uses the information provided to add the required number of entries to the relevant table. the information listed inside each loop shows the attributes the object has. All of them require an X and Y value for position, a speed at which they move and then specific info like a radius for the planets, or a colour. With this information added to the tables we can start to update them.
+    This small section of code is responsible for adding all of the stars to our background. I have used the code which adds the most stars as an example to keep things simple but for planets, larger stars, smaller stars it all works the same way. First we create a loop, which we want to run a given number of times. In our case that number is an argument accepted by the add_stars() function. This means we can tell it how many stars to generate. The next step is to give each star different values for their position, speed and colour. These are the X,Y,SPD and SCOL attributes. In my case the stars will be randomly set to either colour 6 or 7 which is grey and white. Finally these particular stars also have a TCOL and LEN attribute. I plan to use these later on to add a hyperspace style stretched star effect so trail colour (TCOL) and length(LEN) will be very relevant.
+    <br>
     <br>
     <hr>
     <br>
+    The next thing we will take a look at is updating our stars. Once again we will only look at the section that updates the stars we added in the code above.)
+    <br>
     <pre class="code-sample">
-      function upd_stars()
-
-	for d in all(distant) do
-		d.x-=d.spd
-		if d.x<=0  then
-			d.x=128
-			d.y=rnd(128)+btm_edge
-		end
-	end
-	
-	for dist in all(distbrite) do
-		dist.x-=dist.spd
-		if dist.x<=0  then
-			dist.x=128
-			dist.y=rnd(128)+btm_edge
-			dist.c=rnd{1,2,3}
-		end
-	end
-		
-	for p in all(planets) do
-		p.x-=p.spd
-		if p.x<=0  then
-			p.c=rnd{1,2,3,5}
-			p.x=128
-			p.y=rnd(128)+btm_edge
-		end
-	end
-	
 	for s in all(stars) do
 		s.x-=s.spd
 		if s.x<=0  then
@@ -193,19 +151,15 @@ end
 			s.y=rnd(128)+btm_edge
 			s.len=rnd(10)+1
 		end
-	end
-		
-end
-    </pre>
+	end</pre>
     <br>
     <br>
-    Again there are multiple sections of code (to update each item) but the important things to note are that we update the X position of each item by adding the speed of that item to it's current location. Once the object disappears off-screen we update it to start it's journey again from the opposite side. If we take the final block of code as an example:
+    Notice how this code starts with another loop? That's because everytime we want to update our stars we need to give instructions to look at our table of stars (conveniently called 'stars') and for every entry in that table we want to update the X values. We do this by subtracting the stars speed from it's X position. Given that our X coordinates start at 0 on the left hand side of the screen and go up to 128 on the right hand side this will move the star from right to left by decreasing the value for X. We don't want it to go too far though! Once the star is off screen and no longer visible to the player we warp it all the way back to the right hand side of the screen and send it whizzing by again the same way. If you look at the code you can see we use an IF statement to check the X position. When it's less than 0 we reset it's X position to be 10 pixels further than the right hand side and to choose a random Y position (vertical position) for their next trip past the camera.
     <br>
+    As you can see I have used a variable called BTM_EDGE to limit how high up the stars are generated but I will likely remove this while refactoring my code. It doesn't save us any real overhead and is more complicated than just saying "go anywhere on the Y axis"! AFter we've done our updates we still need to actually draw the stars to the screen. Again we will look at only the section relating to the stars we just updated. Guess how this code begins? If you guessed "with a loop" then congratulations. You were right.
     <br>
-    'if s.x<=0' says that once the star hits the x position of 0 (the left side of the screen) we should update it's X position to 138 using the line 's.x=138'. We alos set it's Y position (vertical position) to a random value somewhere between 128 and the bottom edge of our hud bar with 's.y=rnd(128)+btm_edge'. Finally after all of that we also give stars a length in case we decide to draw them with trails at any point. Next we will take a look at the code used to draw the stars. Again it is a large block of repeated sections so I will simply use one as an example.
     <br>
     <hr>
-    <br>
     <pre class="code-sample">
       for s in all(stars) do
 			pset(s.x,s.y,s.scol)
@@ -215,11 +169,15 @@ end
     <i>Drawing stars to the sky!</i>
     <br>
     <br>
-    This code says that we should look in the table called 'stars' and that for every entry we should call the PSET function. PSET takes 3 arguments. An X and Y and a colour argument. Additionally this draw function can also create a trail behind the stars but currently it is commented out for visual testing.
+    Once again our loops sets us on the right path. It loops through the stars table and for every entry it calls the PSET function. This function needs three arguments to work. It needs an X, a Y and a colour. We added those back at the beginning and we updated the X position during the previous section so this final bit simply draws a single pixel at the X and Y  position of a given star and then colours it in. Simple as that.
+    <br>
+    You can see there is another piece of code currently commented out. This piece of code uses the LINE function which (you guesssed it) draws a line! In my code it will be used for the tails behind the stars although for the moment I have it removed for testing.
     <br>
     <br>
-    We've covered quite a lot of code, and I will tidy this up with shorter examples. For the next update I will show some samples of custom tools I've made that you could use in your own Pico8 projects! Below is a gif of the stars flying by, to show you what code like this does. Remember, none of the code above calls any artwork, the stars themselves are just lines of code. Pretty cool I think.
-    <img class="pico8-center" src="images\SHMUP_220630.gif"
+    To illustrate the above code take a look at the gif below. Remember, none of the code above calls any artwork, the stars themselves are just lines of code. Pretty cool I think.
+    <br>
+    <br>
+    <img class="pico8-center" src="images\simple_stars.gif"
         alt="a small red spaceship floats endlessly through space, avoiding small green aliens">
     </p>
   </div>
@@ -229,6 +187,7 @@ end
   <div class="blog-fill">
     <h2>Day 53 - Friday 23rd June</h2>
     <hr>
+    <br>
     <p>
       As I have become painfully aware over the last 10 days it takes a lot of work, energy and focus to remain in the habit of practicing everyday. While I did have some personal engagements there is no excuse for how lazy I have been with updating my site and with practicing my programming. Work has certainly come along on my SHMUP game but I have let everything else fall by the wayside. To remedy this I am setting myself a challenge. My aim is to change one thing about this site every week, along with writing a daily bit of Pico 8 code using a function I don't have experience with.
       <br>
@@ -247,6 +206,7 @@ end
   <div class="blog-fill">
     <h2>Day 43 - Monday 13th June</h2>
     <hr>
+    <br>
     <p>
       After an exhausting weekend I am spending a whole day working at the computer (finally!). There will be 2 updates to the site today. The first is this little post to lay out what my aims are, and the second will be in about 7 hours when I update the journal with some progress and hopefully examples. As for my aims: To complete the next episode of SHMUP, to complete one eipode of Porklike and to chanmge some part of my website!
       <br>
@@ -260,6 +220,7 @@ end
   <div class="blog-fill">
     <h2>Day 42 - Sunday 12th Juky</h2>
     <hr>
+    <br>
     <p>
       My excuse is much the same as last time. I will be working again for the latter half of Sunday and then free all day Monday, though in the run up to the wedding I must still seek out an appropriate shirt and tie combination. This week will be busy but friends and family abound so I'm holding myself to a slight less strict schedule for updating the site.
       <br>
@@ -273,6 +234,7 @@ end
   <div class="blog-fill">
     <h2>Day 38 - Wednesday 8th June</h2>
     <hr>
+    <br>
     <p>
       As I'm sure the more astute among you have noticed I didn't update the site for a few days. I was extremely busy with the new job over the weekend and needed a break away from the constant immersion I've been using to learn coding. Luckily that means that today I was able to come back with a vengeance and push right on through adding collision, some visual effects and points into my SHMUP game. The gif below demonstrates all these new additions. I will also share some code snippets as well.
       <br>
@@ -306,6 +268,7 @@ end
   <div class="blog-fill">
     <h2>Day 33 - Friday 3rd June</h2>
     <hr>
+    <br>
     <p>
       **written morning of Saturday the 4th**
       <br>
