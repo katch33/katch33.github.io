@@ -1,12 +1,36 @@
 body {
-    background-color: 
+    padding: 0;
+    margin: auto;
+    width: 50vw;
+    height: 100vh;
+    background-image: url("images/sleeps.JPG");
+    background-size: cover;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 400;
+
 }
 
 img {
-    padding: 0;
-    margin: 0;
-    border: 5px solid red;
-    max-width: 350px;
-    border-radius: 10px;
+    max-width: 500px;
     display: cover;
+    
+    /* DEBUG */
+    border: 2px solid green;
+}
+
+.red_border {
+    border-radius: 10px;
+    border: 5px solid red;
+    max-width: 100vw;
+}
+
+.current-article {
+    background-color: darkslategrey;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
 }
