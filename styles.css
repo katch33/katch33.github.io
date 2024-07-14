@@ -5,7 +5,7 @@ body {
     height: 100vh;
     background-image: url("images/sleeps.JPG");
     background-size: cover;
-    font-size: 24px;
+    font-size: 42px;
     color: beige;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -34,7 +34,20 @@ img {
 }
 
 .gallery {
-    overflow: hidden;
+    overflow: visible;
+}
+
+.caption {
+    padding: 15px;
+    margin: auto 0;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.caption-bg {
+    background-color: grey;
+    opacity: 0.85;
+    filter: blur(5);
 }
 
 .cat-title {
