@@ -1,0 +1,12 @@
+body {
+    background-color: 
+}
+
+img {
+    padding: 0;
+    margin: 0;
+    border: 5px solid red;
+    max-width: 350px;
+    border-radius: 10px;
+    display: cover;
+}
