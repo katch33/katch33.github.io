@@ -1,7 +1,6 @@
 body {
-    padding: 0;
     margin: auto;
-    width: 50vw;
+    width: 70vw;
     height: 100vh;
     background-image: url("images/sleeps.JPG");
     background-size: cover;
@@ -25,6 +24,20 @@ img {
     margin: 50px auto;
     border-radius: 500px 100px;
     border: 5px solid teal;
+}
+
+a {
+    color: black;
+}
+
+ul {
+    border-left: 2px solid black;
+    padding-left: 50px;
+}
+
+.nav-list {
+    color: black;
+    background-color: rgba(100, 100, 100, 0.5);
 }
 
 .red_border {
