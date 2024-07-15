@@ -1,10 +1,11 @@
 body {
-    margin: auto;
+    margin: 50px auto;
     width: 70vw;
     height: 100vh;
     background-image: url("images/sleeps.JPG");
     background-size: cover;
     font-size: 42px;
+    font-family: sans-serif;
     color: beige;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,10 +13,10 @@ body {
 
 h1 {
     text-transform: uppercase;
-    font-family: sans-serif;
     font-weight: 400;
     color: black;
     text-align: center;
+    text-shadow: 4px 4px 5px grey;;
 }
 
 img {
@@ -23,36 +24,50 @@ img {
     display: cover;
     margin: 50px auto;
     border-radius: 500px 100px;
-    border: 5px solid teal;
-}
-
-a {
-    color: black;
+    border: 5px solid #008080;
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: "+ ";
     margin: 0;
+    padding-bottom: 20px;
+}
+
+li {
     padding: 0;
-  }
+}
 
 a {
-    color: white;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.33;
 }
 
 a:hover {
-    color:aqua;
-}
-.nav-list {
-    background-color: rgba(100, 100, 100, 0.5);
-    margin-bottom: 10px;
-    display: block;
+    color: white;
+    opacity: 0.7;
+    box-shadow: 5px 5px 10px grey, -5px -5px 10px grey;
 }
 
-.red_border {
+.page-title {
+    width: 100;
+    text-align: center;
+}
+
+.nav-list {
+    text-transform: lowercase;
+    color: black;
+}
+
+.border {
     border-radius: 10px;
-    border: 5px solid red;
-    max-width: 100vw;
+    border: 5px solid black;
+}
+
+.bg-black {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 50px;
+    padding: 10px 20px;
 }
 
 .gallery {
@@ -60,47 +75,37 @@ a:hover {
 }
 
 .caption {
-    padding: 15px;
-    margin: auto 0;
+    padding: 50px;
+    margin: 50px auto;
     margin-bottom: 50px;
-    color: white;
+    color: beige;
 }
 
 .caption-bg {
-    background-color: grey;
-    opacity: 0.85;
+    background-color: rgba(128,128,128,0.5);
     filter: blur(5);
-}
-
-.cat-title {
-    font-size: 4rem;
-    width: 100;
-    border: 2px solid red;
-    text-align: center;
-
+    border-radius: 25px;
 }
 
 .current-article {
-    background-color: darkslategrey;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
+    background-color: rgb(47,79,79,0.6);
+    padding: 50px;
+    margin: 50px auto;
+    border-radius: 25px;
 }
 
 .prev-article {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    color: rgba(245,245,220,0.7);
     background-color: darkslateblue;
+    padding: 50px;
+    margin: 50px auto;
+    border-radius: 25px;
+    color: rgba(245,245,220,0.7);
 }
 
 .blurb {
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 50px;
-    margin: auto;
-    color: blanchedalmond;
-    text-shadow: 2px 2px 2px black;
+    margin: 50px auto;
     background-color: rgba(119, 136, 153, 0.5);
 }
 
@@ -108,4 +113,5 @@ a:hover {
     background: rgba(119, 136, 153, 0.5);
     margin-top: 50px;
     padding: 20px;
+    border-radius: 25px;
 }
