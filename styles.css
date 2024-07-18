@@ -134,3 +134,7 @@ a:hover {
     padding: 20px;
     border-radius: 25px;
 }
+
+.goals {
+    list-style-type: ">_ ";
+}
