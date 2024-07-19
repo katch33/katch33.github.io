@@ -43,22 +43,15 @@ a {
     color: inherit;
 }
 
+/* need to target links inside list items inside ul inside div with class achievements */
+.ach-link {
+    color: orange;
+}
+
 a:hover {
     color: white;
     opacity: 0.7;
     box-shadow: 5px 5px 10px grey, -5px -5px 10px grey;
-}
-
-.current-article > a {
-    color: orange;
-    opacity: 1.0;
-    box-shadow: 0;
-}
-
-.current-article > a:hover {
-    color: teal;
-    opacity: 1.0;
-    box-shadow: none;
 }
 
 .page-title {
@@ -110,6 +103,18 @@ a:hover {
     border-radius: 25px;
 }
 
+.current-article > a {
+    color: orange;
+    opacity: 1.0;
+    box-shadow: 0;
+}
+
+.current-article > a:hover {
+    color: teal;
+    opacity: 1.0;
+    box-shadow: none;
+}
+
 .prev-article {
     background-color: darkslateblue;
     padding: 50px;
@@ -136,5 +141,5 @@ a:hover {
 }
 
 .goals {
-    list-style-type: ">_ ";
+    list-style-type: "</> ";
 }

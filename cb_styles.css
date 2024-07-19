@@ -1,0 +1,89 @@
+:root {
+    --font-family: sans-serif;
+    --body-bg: #1e1f25;
+    --button-bg: #000;
+    --btn-color: #cbcbcb;
+    --btn-color-hover: #fff;
+    --grad-color1: #eeaf61;
+    --grad-color2: #fb9062;
+    --grad-color3: #ee5d6c;
+    --grad-color4: #ce4993;
+    --grad-color5: #6a0d83;
+    --curve: 0px;
+}
+
+body {
+    background-color: var(--body-bg);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 64px;
+    font-family: var(--font-family);
+}
+
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-border {
+    display: flex;
+    padding: 3px;
+    background-image: linear-gradient(115deg, var(--grad-color1), var(--grad-color2), var(--grad-color3), var(--grad-color4), var(--grad-color5) );
+
+    border-radius: var(--curve);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.button-border:hover {
+    transform: scale(1.01);
+    background-image: linear-gradient(-115deg, var(--grad-color1), var(--grad-color2), var(--grad-color3), var(--grad-color4), var(--grad-color5) );
+}
+
+.button {
+    font-family: inherit;
+    border: none;
+    border-radius: var(--curve);
+
+    background-color: var(--button-bg);
+    color: var(--btn-color);
+
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    padding: 20px;
+}
+
+.button:hover {
+    background-color: var(--button-bg);
+    color: var(--btn-color-hover);
+}
+
+/*
+- Gradient Border
+    + use provided colors DONE
+    + 115deg gradient DONE
+
+- Hover State
+    + colors flip horizontally DONE
+    + button grows slightly in size DONE
+    + text changes from grey to white DONE
+
+- Center button on page DONE
+
+HINTS
+- Gradient borders effect can be accomplished using a wrapping div OR with the border-image property
+
+RESEARCH
+- linear-gradient function
+- border-image and border-image-slice
+
+*/
