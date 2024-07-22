@@ -1,145 +1,50 @@
-body {
-    margin: 50px auto;
-    width: 80vw;
-    height: 100vh;
-    background-image: url("images/sleeps.JPG");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    color: rgba(245,2425,200,1);
+/* Site Design
+
+    + White bg
+    + Black/dark blue text
+    + Links down right side
+    + Solid bar between them and main content on each page
+
+*/
+
+* {
+    margin:0;
+    padding: 0;
 }
 
-h1 {
-    text-transform: uppercase;
-    font-weight: 400;
-    color: black;
-    text-align: center;
-    text-shadow: 4px 4px 5px grey;
+body {
+    /* sets default font and size */
+    font-size: 16px;
+    font-family: sans-serif;
+
+    /* The margin pushes all the content away from the edges of the viewport by 30px*/
+    margin: 0 30px;
+}
+
+h2 {
+    margin-top: 40px;
 }
 
 img {
     max-width: 100%;
-    display: cover;
-    margin: 50px auto;
-    border-radius: 500px 100px;
-    border: 5px solid #008080;
 }
 
-ul {
-    list-style-type: "+ ";
-    margin: 0;
-    padding-bottom: 20px;
-}
-
-li {
-    padding: 0;
+div > ul {
+    margin: 20px 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* need to target links inside list items inside ul inside div with class achievements */
-.ach-link {
     color: orange;
 }
 
 a:hover {
-    color: white;
-    opacity: 0.7;
-    box-shadow: 5px 5px 10px grey, -5px -5px 10px grey;
+    color: aquamarine;
+    background-color: rgba( 20, 20, 20, 0.5);
 }
 
-.page-title {
-    width: 100;
-    text-align: center;
-}
+@media (max-width: 600px) {
 
-.nav-list {
-    text-transform: lowercase;
-    color: black;
-}
-
-.border {
-    border-radius: 10px;
-    border: 5px solid black;
-}
-
-.bg-black {
-    opacity: 0.7;
-    background-color: rgba(0, 0, 0, 1);
-    border-radius: 50px;
-    padding: 10px 20px;
-}
-
-.bg-black:hover {
-    opacity: 1}
-
-.gallery {
-    overflow: visible;
-}
-
-.caption {
-    padding: 50px;
-    margin: 50px auto;
-    margin-bottom: 50px;
-    color: beige;
-}
-
-.caption-bg {
-    background-color: rgba(128,128,128,0.5);
-    filter: blur(5);
-    border-radius: 25px;
-}
-
-.current-article {
-    background-color: rgb(47,79,79,0.6);
-    padding: 50px;
-    margin: 50px auto;
-    border-radius: 25px;
-}
-
-.current-article > a {
-    color: orange;
-    opacity: 1.0;
-    box-shadow: 0;
-}
-
-.current-article > a:hover {
-    color: teal;
-    opacity: 1.0;
-    box-shadow: none;
-}
-
-.prev-article {
-    background-color: darkslateblue;
-    padding: 50px;
-    margin: 50px auto;
-    border-radius: 25px;
-    color: rgba(245,245,220,0.7);
-}
-
-.blurb {
-    border-radius: 25px;
-    padding: 50px;
-    margin: 50px auto;
-    background-color: rgba(119, 136, 153, 0.8);
-    color: rgb(46, 5, 5);
-}
-
-.achievements {
-    color: rgba(10,30,50,1);
-    background: rgba(119, 136, 153, 0.7);
-
-    margin-top: 50px;
-    padding: 20px;
-    border-radius: 25px;
-}
-
-.goals {
-    list-style-type: "</> ";
+    body {
+        color: darkslategray
+    }
 }
