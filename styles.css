@@ -19,19 +19,32 @@ body {
 
     /* The margin pushes all the content away from the edges of the viewport by 30px*/
     margin: 0 30px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin-top: 40px;
 }
 
 h2 {
     margin-top: 40px;
 }
 
+legend {
+    text-transform: uppercase;
+}
+
 img {
     max-width: 100%;
 }
 
-div > ul {
-    margin: 20px 0;
+/* change this, this is a bad selector. Class maybe? */
+div[class="daily-brags"] > ul {
+    margin: 30px 0;
 }
+
+/* use daily-brags class to style brags page */
 
 a {
     color: orange;
@@ -42,9 +55,15 @@ a:hover {
     background-color: rgba( 20, 20, 20, 0.5);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
 
     body {
-        color: darkslategray
+        color: darkslategray;
+        margin: 0 30px;
     }
+
+    ul {
+        margin: 0 30px;
+    }
+
 }
