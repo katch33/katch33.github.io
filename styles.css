@@ -47,12 +47,13 @@ div[class="daily-brags"] > ul {
 /* use daily-brags class to style brags page */
 
 a {
-    color: orange;
+    /* unsure of good color choice here */
 }
 
 a:hover {
     color: aquamarine;
     background-color: rgba( 20, 20, 20, 0.5);
+    border-radius: 5px;
 }
 
 @media (max-width: 1200px) {
